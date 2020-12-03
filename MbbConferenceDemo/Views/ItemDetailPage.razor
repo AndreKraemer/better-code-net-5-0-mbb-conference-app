@@ -1,0 +1,27 @@
+﻿@page "/items/{Id}"
+@using MbbConferenceDemo.Models
+@using MbbConferenceDemo.Services
+@inject IDataStore<Item> DataStore
+<ContentView>
+    <StyleSheet Resource="styles.css" Assembly="GetType().Assembly"></StyleSheet>
+    <ScrollView>
+        <StackLayout>
+            <Label Text="@Item.Text" class="headline"></Label>
+            <Label Text="@Item.Description" class="subline"></Label>
+        </StackLayout>
+    </ScrollView>
+</ContentView>
+
+
+@code {
+
+    Item Item;
+
+    [Parameter]
+    public string Id
+    {
+
+        set => Item = DataStore.GetItem(value);
+    }
+
+}

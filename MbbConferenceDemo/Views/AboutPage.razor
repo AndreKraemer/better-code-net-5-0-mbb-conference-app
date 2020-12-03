@@ -1,0 +1,33 @@
+﻿<ContentPage Title="Start">
+    <StyleSheet Resource="styles.css" Assembly="GetType().Assembly"></StyleSheet>
+    <Grid RowDefinitions="Auto, *">
+        <StackLayout VerticalOptions="LayoutOptions.FillAndExpand" HorizontalOptions="LayoutOptions.Fill" StyleClass="primary">
+            <StackLayout Orientation="StackOrientation.Horizontal" HorizontalOptions="LayoutOptions.Center" VerticalOptions="LayoutOptions.Center">
+                <ContentView Padding="new Thickness(0, 40, 0, 40)" VerticalOptions="LayoutOptions.FillAndExpand">
+                    <Label Text="betterCode(.NET 5.0) " StyleClass="header-label" ></Label>
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <GridCell Row="1">
+            <ScrollView>
+                <StackLayout Orientation="StackOrientation.Vertical" Padding="new Thickness(30, 24, 30, 24)" Spacing="10">
+                    <Label Text="betterCode()" FontSize="20" HorizontalOptions="LayoutOptions.Center"/>
+                    <Label Text=".NET 5" FontSize="16" Padding="new Thickness(0, 0, 0, 0)" HorizontalOptions="LayoutOptions.Center" FontAttributes="FontAttributes.Bold"/>
+                    <Label FontSize="16" Padding="new Thickness(0, 24, 0, 0)" HorizontalOptions="LayoutOptions.Center">
+                        <Span Text="Das Online-Event von "/>
+                        <Span Text="Heise" FontAttributes="FontAttributes.Bold"/>
+                    </Label>
+                    <Button StyleClass="action-button" Text="Jetzt Tickets sichern"/>
+                </StackLayout>
+            </ScrollView>
+        </GridCell>
+    </Grid>
+</ContentPage>
+
+@code {
+
+    private void button_click()
+    {
+        Browser.OpenAsync("https://net50.bettercode.eu/tickets.php");
+    }
+}

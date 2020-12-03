@@ -1,0 +1,33 @@
+﻿@using MbbConferenceDemo.Services
+@using MbbConferenceDemo.Models
+@inject IDataStore<Item> DataStore
+@inject ShellNavigationManager NavigationManager
+<ContentPage Title="Programm">
+    <StyleSheet Resource="styles.css" Assembly="GetType().Assembly"></StyleSheet>
+    <ScrollView>
+        <StackLayout>
+            @foreach (var item in items)
+            {
+                <StackLayout class="list-row">
+                    <TapGestureRecognizer NumberOfTapsRequired="1" OnTapped="() => NavigateToDetails(item)"></TapGestureRecognizer>
+                    <Label Text="@item.Text" class="headline"></Label>
+                    <Label Text="@item.Description" class="subline"></Label>
+                </StackLayout>
+            }
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
+
+@code {
+    IEnumerable<Item> items;
+
+    protected override async Task OnInitializedAsync()
+    {
+        items = await DataStore.GetItemsAsync(true);
+    }
+
+    async void NavigateToDetails(Item item)
+    {
+        await NavigationManager.NavigateToAsync($"/items/{item.Id}");
+    }
+}

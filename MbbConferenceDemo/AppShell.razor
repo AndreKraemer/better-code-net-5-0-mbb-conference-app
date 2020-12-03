@@ -1,0 +1,18 @@
+﻿@using MbbConferenceDemo.Views
+<Shell>
+    <FlyoutHeader>
+        @*<StyleSheet Resource="styles.css" Assembly="GetType().Assembly"></StyleSheet>*@
+        <StackLayout Padding="20">
+            <Label Text="betterCode()" TextColor="Color.White" FontSize="20"></Label>
+            <Label Text="Mobile Blazor Bindings Demo" TextColor="Color.White"></Label>
+        </StackLayout>
+    </FlyoutHeader>
+    <ChildContent>
+        <ShellContent Title="Start" Route="start"  ><AboutPage /></ShellContent>
+        <ShellContent Title="Programm" Route="programm" ><ItemsPage /></ShellContent>
+    </ChildContent>
+</Shell>
+
+@code {
+
+}
